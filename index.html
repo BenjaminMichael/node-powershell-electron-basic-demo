@@ -9,25 +9,37 @@
     <!--custom css controls the LED lights-->
     <link href="./css/custom.css" rel="stylesheet">
   </head>
-  <body>
-    <h1>Hello World!</h1>
+  <body class="purple darken-4 white-text">
+    <h3 class="center" id="myH3">Click buttons 1, 2, and 3 multiple times to get lots of errors!</h3>
+    <p>Button 4 is my "one size fits all button" for chainins powershell commands</p>
 <form>
-<div class="container green">
-  <div class="purple btn col s4 m4 l4" id='test1Btn'>1</div> <br><br><div class="btn col s4 m4 l4"  id='test2Btn'>2</div><br><br><div class="btn col s4 m4 l4"  id='test3Btn' >3</div>
-<br><br><br>
-<div id="resultsGoHere"></div>
+  <div class="container center green accent-2">
+  
+    <div class="row center">
+      <div class="btn purple-text grey z-depth-2  col s1 m1 l1"  id='test1Btn'>1</div> 
+      <div class="btn purple-text grey z-depth-2  col s1 m1 l1"  id='test2Btn'>2</div>
+      <div class="btn purple-text grey z-depth-2  col s1 m1 l1"  id='test3Btn'>3</div>
+      <div class="btn purple-text grey z-depth-2  col s1 m1 l1"  id='test4Btn'>4</div>
+      <div class="btn purple-text grey z-depth-2  col s1 m1 l1"  id='test5Btn'>5</div>
+    </div>
+    
+    <div class="row">
+      <div class="col s12 m12 l12 z-depth 4 purple-text" id="resultsGoHere"></div>
+    </div>
 
-</div>
-
+  </div>
 </form>
-    <br>
+    
+
+<div class="row">
     <!-- All of the Node.js APIs are available in this renderer process. -->
     We are using Node.js <script>document.write(process.versions.node)</script>,
     Chromium <script>document.write(process.versions.chrome)</script>,
     and Electron <script>document.write(process.versions.electron)</script>.
-
+  </div>
     <script>
       // You can also require other files to run in this process
+      
       require('./renderer.js')
     </script>
   </body>

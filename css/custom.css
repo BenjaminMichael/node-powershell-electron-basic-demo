@@ -1,0 +1,15 @@
+.btn{
+    margin-left:5%;
+    margin-right:5%;
+}
+.chip{
+    margin-top:2px;
+    margin-left:2px;
+    margin-right:2px;
+    font-size:8px;;
+}
+#resultsGoHere{
+    text-overflow:scroll;
+    width:100%;
+    height:200px;
+}
