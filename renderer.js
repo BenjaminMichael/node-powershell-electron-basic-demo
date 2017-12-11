@@ -62,8 +62,7 @@ $(document).ready(function(){
         ps.on('output', output=>{
             var parsedOutput = output.split("\n") 
             parsedOutput.forEach(val => doneLoading(val))
-        });
-        
+        }); 
     })
 
     $('#test2Btn').click(()=>{
