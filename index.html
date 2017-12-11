@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Hello World!</title>
+    <title>blocking vs nonclocking code</title>
     <link href="./node_modules/materialize-css/dist/css/materialize.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
@@ -10,17 +10,20 @@
     <link href="./css/custom.css" rel="stylesheet">
   </head>
   <body class="purple darken-4 white-text">
-    <h3 class="center" id="myH3">Click buttons 1, 2, and 3 multiple times to get lots of errors!</h3>
-    <p>Button 4 is my "one size fits all button" for chainins powershell commands</p>
+    <h3 class="center" id="myH3">Click buttons multiple times to get lots of errors and freeze up your CPU!</h3>
+    <div class="container"><p>Each buttons uses 9 promises except "Batched" uses 1 promise, and each promise is for a PowerShell command to execute and on return it will update the DOM.  Pay attention to the "Done" message which appears fastest on the "slowest" button: Sequence.  This is because it waits for one Powershell promise to resolve before invoking a second Promise.</p></div>
 <form>
   <div class="container center green accent-2">
   
     <div class="row center">
-      <div class="btn purple-text grey z-depth-2  col s1 m1 l1"  id='test1Btn'>1</div> 
-      <div class="btn purple-text grey z-depth-2  col s1 m1 l1"  id='test2Btn'>2</div>
-      <div class="btn purple-text grey z-depth-2  col s1 m1 l1"  id='test3Btn'>3</div>
-      <div class="btn purple-text grey z-depth-2  col s1 m1 l1"  id='test4Btn'>4</div>
-      <div class="btn purple-text grey z-depth-2  col s1 m1 l1"  id='test5Btn'>5</div>
+      <div class="btn purple-text grey z-depth-2  col s3 m3 l3"  id='test1Btn'>batched</div> 
+      <div class="btn purple-text grey z-depth-2  col s3 m3 l3"  id='test2Btn'>setImmediate</div>
+      <div class="btn purple-text grey z-depth-2  col s3 m3 l3"  id='test3Btn'>.nextTick</div>
+    </div>
+    <div class="row center">
+      <div class="btn purple-text grey z-depth-2  col s3 m3 l3"  id='test4Btn'>forEach</div>
+      <div class="btn purple-text grey z-depth-2  col s3 m3 l3"  id='test5Btn'>sequence</div>
+      <div class="btn purple-text grey z-depth-2  col s3 m3 l3"  id='cancelBtn'>Clear</div>
     </div>
     
     <div class="row">
