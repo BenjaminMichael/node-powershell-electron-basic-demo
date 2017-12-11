@@ -3,9 +3,24 @@
   <head>
     <meta charset="UTF-8">
     <title>Hello World!</title>
+    <link href="./node_modules/materialize-css/dist/css/materialize.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <!--custom css controls the LED lights-->
+    <link href="./css/custom.css" rel="stylesheet">
   </head>
   <body>
     <h1>Hello World!</h1>
+<form>
+<div class="container green">
+  <div class="purple btn col s4 m4 l4" id='test1Btn'>1</div> <br><br><div class="btn col s4 m4 l4"  id='test2Btn'>2</div><br><br><div class="btn col s4 m4 l4"  id='test3Btn' >3</div>
+<br><br><br>
+<div id="resultsGoHere"></div>
+
+</div>
+
+</form>
+    <br>
     <!-- All of the Node.js APIs are available in this renderer process. -->
     We are using Node.js <script>document.write(process.versions.node)</script>,
     Chromium <script>document.write(process.versions.chrome)</script>,
