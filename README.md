@@ -1,8 +1,12 @@
 # node-powershell with electron-quick-start developer sandbox
 
+Powershell?  Yes, PowerShell.  You will need WindowsPowerShell installed for this to actually work or if you're on a Mac you can install it with Homebrew.  Its not too difficult (until you want to update tp a newer version later on).  Haven't messed with it on Linux yet.
+
 A typical node-powershell command or script execution is asyncronous.  It returns console output whenever its done or it triggers the ps.on() event.  A common question that arises is: how do I execute many scripts/command in succession?
 
 Take a look at renderer.js to see how I'm looping/mapping an array in order to programmatically execute powershell commands/scripts.  Don't let the super easy UI framework totally staying out of your way so you can focus on the impoprtant code throw you off.  That's just Materialize (feat. jQuery).
+
+This is intended to be run in dev mode so just clone the repo, npm install -S, npm start.
 
 If you install your npm modules globally you will probably want to fix 2 things:
 
