@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>blocking vs nonclocking code</title>
+    <title>The promises of this world are, for the most part, vain phantoms; and to confide in one's self, and become something of worth and value is the best and safest course.</title>
     <link href="./node_modules/materialize-css/dist/css/materialize.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
@@ -10,8 +10,8 @@
     <link href="./css/custom.css" rel="stylesheet">
   </head>
   <body class="purple darken-4 white-text">
-    <h3 class="center" id="myH3">Click buttons multiple times to get lots of errors and freeze up your CPU!</h3>
-    <div class="container"><p>Each buttons uses 9 promises except "Batched" uses 1 promise, and each promise is for a PowerShell command to execute and on return it will update the DOM.  Pay attention to the "Done" message which appears fastest on the "slowest" button: Sequence.  This is because it waits for one Powershell promise to resolve before invoking a second Promise.</p></div>
+    <h3 class="center" id="myH3"></h3>
+    <div class="container"><p>Click all the buttons once and see what they do.  Then try clearing and clicking more times.  Try clicking rapidly.  You will see what causes errors and other performance issues for your computer.  Before I was using ps.dispose in the then() block it was really easy to spam click and make my antivirus complain about not getting any threads to use lol.</p></div>
 <form>
   <div class="container center green accent-2">
   
