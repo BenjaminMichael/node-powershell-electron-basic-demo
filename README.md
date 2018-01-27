@@ -1,9 +1,8 @@
 # node-powershell with electron-quick-start developer sandbox
-Don't let the super easy UI framework totally staying out of your way so you can focus on the impoprtant code.  That's just Materialize (feat. jQuery).
 
 A typical node-powershell command or script execution is asyncronous.  It returns console output whenever its done or it triggers the ps.on() event.  A common question that arises is: how do I execute many scripts/command in succession?
 
-Take a look at renderer.js to see how I'm looping/mapping an array in order to programmatically execute powershell commands/scripts.
+Take a look at renderer.js to see how I'm looping/mapping an array in order to programmatically execute powershell commands/scripts.  Don't let the super easy UI framework totally staying out of your way so you can focus on the impoprtant code throw you off.  That's just Materialize (feat. jQuery).
 
 If you install your npm modules globally you will probably want to fix 2 things:
 
