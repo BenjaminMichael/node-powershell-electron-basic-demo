@@ -16,15 +16,16 @@
   <div class="container center green accent-2">
   
     <div class="row center">
-      <div class="btn purple-text grey z-depth-2  col s3 m3 l3"  id='test1Btn'>batched</div> 
-      <div class="btn purple-text grey z-depth-2  col s3 m3 l3"  id='test2Btn'>setImmediate</div>
-      <div class="btn purple-text grey z-depth-2  col s3 m3 l3"  id='test3Btn'>.nextTick</div>
-    </div>
-    <div class="row center">
-      <div class="btn purple-text grey z-depth-2  col s3 m3 l3"  id='test4Btn'>forEach</div>
-      <div class="btn purple-text grey z-depth-2  col s3 m3 l3"  id='test5Btn'>sequence</div>
+      <div class="flow-text btn purple-text grey z-depth-2  col s3 m3 l3"  id='test1Btn'>fast tail end recursion</div> 
+      <div class="col s2 m2 l2"></div>\
       <div class="btn purple-text grey z-depth-2  col s3 m3 l3"  id='cancelBtn'>Clear</div>
     </div>
+
+    <div class="row">
+      <ul>
+        <li class="row black cyan-text text-accent-2 z-depth-2">fast tail end recursion: a simple sequential "waterfall" where results are carried forward but each ps.invoke() has to wait for powershell console output before it calls a recursive function called doPowershell()</li>
+        <li class="row black cyan-text text-accent-2 z-depth-2">map /w setImediate: iterate very fast</li>
+    </ul></div>
     
     <div class="row">
       <div class="col s12 m12 l12 z-depth 4 purple-text" id="resultsGoHere"></div>

@@ -23,6 +23,8 @@
     "electron": "~1.7.8"
   },
   "dependencies": {
+    "async": "^2.6.0",
+    "async-waterfall": "^0.1.5",
     "jquery": "^3.2.1",
     "materialize-css": "^0.100.2",
     "node-powershell": "^3.3.1"
