@@ -1,8 +1,0 @@
-if you install your node modules globally you will probably want to fix a few things
-
-in index.html
-<link href="./node_modules/materialize-css/dist/css/materialize.css" rel="stylesheet">
-
-and in rednerer.js
-window.$ = window.jQuery = require('./node_modules/jquery/dist/jquery.js')
-window.Hammer = require('./node_modules/materialize-css/js/hammer.min.js')
