@@ -17,7 +17,3 @@ and 1 in renderer.js
 ``` javascript
 window.Hammer = require('./node_modules/materialize-css/js/hammer.min.js')
 ```
-
-hint: #test5Btn the "Sequence" button is the technique that doesn't suck.
-
-Note that this demo doesn't showcase the other technique I strongly recommend: disabling buttons when clicked so they cant be spam clicked to spawn dozens of powershell consoles.  Here you get to see all the fun errors is causes.  Enjoy!
