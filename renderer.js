@@ -49,4 +49,4 @@ $(document).ready(function(){
         })
         doPowershell(testData[i++])
     })
-    })
+})
