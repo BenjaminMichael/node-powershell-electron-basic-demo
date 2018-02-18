@@ -21,7 +21,7 @@ function loading(){
 
 $(document).ready(function(){
 
-    $('#cancelBtn').click( () => {
+    $('#clearBtn').click( () => {
         $('#resultsGoHere').empty()
     })
 
