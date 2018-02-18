@@ -11,21 +11,18 @@
   </head>
   <body class="purple darken-4 white-text">
     <h3 class="center" id="myH3"></h3>
-    <div class="container"><p>Click all the buttons once and see what they do.  Then try clearing and clicking more times.  Try clicking rapidly.  You will see what causes errors and other performance issues for your computer.  Before I was using ps.dispose in the then() block it was really easy to spam click and make my antivirus complain about not getting any threads to use lol.</p></div>
 <form>
   <div class="container center green accent-2">
   
     <div class="row center">
-      <div class="flow-text btn purple-text grey z-depth-2  col s3 m3 l3"  id='test1Btn'>fast tail end recursion</div> 
+      <div class="flow-text btn purple-text grey z-depth-2  col s6 m6 l6"  id='test1Btn'>Fast tail end recursion</div> 
       <div class="col s2 m2 l2"></div>
-      <div class="btn purple-text grey z-depth-2  col s3 m3 l3"  id='clearBtn'>Clear</div>
+      <div class="btn purple-text grey z-depth-2 right col s3 m3 l3"  id='clearBtn'>Clear</div>
     </div>
 
     <div class="row">
-      <ul>
-        <li class="row black cyan-text text-accent-2 z-depth-2">fast tail end recursion: a simple sequential "waterfall" where results are carried forward but each ps.invoke() has to wait for powershell console output before it calls a recursive function called doPowershell()</li>
-    </ul></div>
-    
+      <div class="row black cyan-text text-accent-2 z-depth-2">A simple sequential "waterfall" where results are carried forward.</div>
+    </div>
     <div class="row">
       <div class="col s12 m12 l12 z-depth 4 purple-text" id="resultsGoHere"></div>
     </div>
