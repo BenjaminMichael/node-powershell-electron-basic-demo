@@ -21,11 +21,11 @@ function loading(){
 
 $(document).ready(function(){
 
-    $('#clearBtn').click( () => {
-        $('#resultsGoHere').empty()
+    document.querySelector('#clearBtn').click( () => {
+        document.querySelector('#resultsGoHere').innerHTML=""
     })
 
-    $('#test1Btn').click( () => {
+    document.querySelector('#test1Btn').click( () => {
         loading()
         let i=0
         let max=testData.length
@@ -40,11 +40,11 @@ $(document).ready(function(){
         }
         ps.on('output', output => {
             runningTotal+=parseInt(output)
-            $('#resultsGoHere').append(`<div class="chip orange lighten-3 purple-text z-depth-3 text-darken-1 col s2 m2 l2">${output}</div>`)
+            document.querySelector('#resultsGoHere').innerHTML+=`<div class="chip orange lighten-3 purple-text z-depth-3 text-darken-1 col s2 m2 l2">${output}</div>`
             if (i<max) {return doPowershell(testData[i++])}else{
                 ps.dispose()
-                $('#myH3').html('<h2>Done.</h2>')
-                $('#resultsGoHere').append(`<div class="chip orange lighten-3 purple-text z-depth-3 text-darken-1 col s2 m2 l2">total:${runningTotal}</div>`)
+                document.querySelector('#myH3').html('<h2>Done.</h2>')
+                document.querySelector('#resultsGoHere').innerHTML+=`<div class="chip orange lighten-3 purple-text z-depth-3 text-darken-1 col s2 m2 l2">total:${runningTotal}</div>`
             }
         })
         doPowershell(testData[i++])
