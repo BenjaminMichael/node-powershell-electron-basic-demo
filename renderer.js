@@ -21,30 +21,30 @@ function loading(){
 
 $(document).ready(function(){
 
-    document.querySelector('#clearBtn').click( () => {
-        document.querySelector('#resultsGoHere').innerHTML=""
+    document.getElementById('clearBtn').addEventListener('click', function(){
+        document.getElementById('resultsGoHere').innerHTML=""
     })
 
-    document.querySelector('#test1Btn').click( () => {
+    document.getElementById('test1Btn').addEventListener('click', function(){
         loading()
         let i=0
         let max=testData.length
-        let runningTotal=0;
+        let runningTotal=0
         let ps = new shell({
             executionPolicy: 'Bypass',
             noProfile: true
-            });
+            })
         const doPowershell = (val) => {
             ps.addCommand(`write-host ${val}`)
             ps.invoke()
         }
         ps.on('output', output => {
             runningTotal+=parseInt(output)
-            document.querySelector('#resultsGoHere').innerHTML+=`<div class="chip orange lighten-3 purple-text z-depth-3 text-darken-1 col s2 m2 l2">${output}</div>`
+            document.getElementById('resultsGoHere').innerHTML+=`<div class="chip orange lighten-3 purple-text z-depth-3 text-darken-1 col s2 m2 l2">${output}</div>`
             if (i<max) {return doPowershell(testData[i++])}else{
                 ps.dispose()
-                document.querySelector('#myH3').html('<h2>Done.</h2>')
-                document.querySelector('#resultsGoHere').innerHTML+=`<div class="chip orange lighten-3 purple-text z-depth-3 text-darken-1 col s2 m2 l2">total:${runningTotal}</div>`
+                document.getElementById('myH3').innerhtml+='<h2>Done.</h2>'
+                document.getElementById('resultsGoHere').innerHTML+=`<div class="chip orange lighten-3 purple-text z-depth-3 text-darken-1 col s2 m2 l2">total:${runningTotal}</div>`
             }
         })
         doPowershell(testData[i++])
