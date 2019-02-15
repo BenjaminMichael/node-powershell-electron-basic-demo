@@ -5,18 +5,26 @@
 <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Mono' rel='stylesheet' type='text/css'>
+    
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <style>
+        h1{
+        font-family: 'Roboto Mono', monospace;
+        }
+    </style>
     </head>
   <body>
     <div class="container">
          <div class="row center green">
-              <h1>node-powershell with recursive tail calls</h1>
+              <h1>node-powershell is for closers: Using recursive tail calls in my electron based user interfaces</h1>
          </div>
          <div class="row">
                          <p>I run into this scenario constantly: I want to check some data and depending on the result, continue recursively running my algorithm on the given set of data.  In this example I am just counting numbers but usually it takes the form of: for a given et of usernames get each AD User's list of group membership and for each of those groups do a thing</p>
          </div>
         <div class="row"><img src="docs\basic1.PNG" class="responsive-img"></div>
         <div class="row">When I first created this demo I was using Map instead of the recursive tail-call.  To execute my powershell script x 10 I would map a set of 10 values against my node-powershell function and this would spawn 10 powershell processes on the first click.  Twenty after a second click... and so on.  It was only later on that I realized this scenario isn't just a joke it comes up constantly when building a user interface that drives poweshell work.</div>
+        <div class="row"><img src="docs\abc.jpg" class="responsive-img"></div>
         <div class="row">It call goes back to the way we write powershell.  We say for each child object of this folder, copy the file to network storage.  Or we say split this string by a delimiter character and for each substring call a certain cmdlet.  If your powershell scripts are simple then you need to orchestrate them in a sophisticated way to actually <b>do</b> anything.</div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
