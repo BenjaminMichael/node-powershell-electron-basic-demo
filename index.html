@@ -11,6 +11,7 @@
     <style>
         h1{
         font-family: 'Roboto Mono', monospace;
+        font-size: 1em;
         }
         #iconrow{
          height:10vh;
@@ -43,15 +44,29 @@
          </div>
         <div class="row"></div>
          <div class="row">
-           <p>I run into this scenario constantly: I'm automating a task.  I want to, for example, get all the AD Users in an OU, and filter, and map a function that performs a task for each user in my dataset.  While its not always that simple its usually fairly procedural steps: A, B, C</p>
+           <h2>let's talk about automating a basic task / giving a script a GUI</h2>
+           <p>This is a starter project to not only give a sample of what can be done quickly and easily but also I wanted to share some of the pitfalls of building a user friendly interface for simple scripts that follow fairly procedural steps: A, B, C that you want to repeat or have your end users repeat.  Imagine that with a single click a PowerShell script is fired that queries Active Directory, performs some computation, and POSTs the result to a web API.  Sound easy.  But what if your user clicks the button 16 times really, really fast?</p>
         </div>
         <div class="row"></div>
         <div class="row"><img src="docs\basic1.PNG" class="responsive-img"></div>
-        <div class="row">When I first created this demo I was, in fact, using good old Map.  To execute my powershell script x 10 users I would map a set of 10 names against my node-powershell function and this would spawn 10 powershell processes on the first click.  Twenty after a second click... and so on.  I put it on github as a cautionary example and because I thought it was funny.  Later on it came up pretty much any time I used node-powershell especially when pairing it with electron to create a cool user interface.</div>
+        <div class="row">When I first created this demo I was trying to explore that idea: perform a simple function once for each item in a set of data.  If I looked up 20 users I needed to run my function 20 times.  First I would look up, for example, 10 user names.  Then I would map a set of 10 names against my node-powershell function and this would spawn 10 powershell processes.  All on the first click!  Twenty after a second click... and so on.  
+        <br>
+        This was either too slow because I has to create/destroy PowerShell instances or it ate too many resources because the PowerShell instances wouldn't even get detroyed until my long chain of promises was reolved.
+        <br>
+        In my opinion this pattern is hard to avoid when you pair node-powershell with a GUI.</div>
+        <br>
         
-        
-        <div class="row">The principle is related to the way we write powershell.  We say things like for each child object of this folder, copy the file to network storage.  Or we say split this string by a delimiter character and for each substring call a certain cmdlet.  If your powershell scripts are simple then you need to orchestrate them in a sophisticated way to actually <b>do</b> anything.  The reason why all the Map, Filter, Reducing couldn't happen inside the PowerShell scripts is because it brings the application state into the UI.  You can observe and interact with the powershell tasks and issue new commands asynchronously.  This is the thing that makes ezpz electron apps worth including in your just-get-it-done powershell world.  Its an easy button for a rich user experience in a world where automation is dead easy and user interfaces are hard.  I use electron and materialize and redux</div>
-    </div>
+        <div class="row">In my experience its helpful to think of writing node-powershell the way we write powershell.  If you want to see the output of every commend, you invoke them one at a time.  If you do not care you invoke a long script or a suepr logn one-line of code.
+    <br><br>
+    <p>
+    In node-powershell, if your powershell scripts are simple then you can orchestrate them in a sophisticated way to actually <b>do</b> your important tasks.  The reason why all the Map, Filter, Reducing is better off happening in Javascript Land is because it brings the in-memory application state into the space of the DOM and ultimately the only UI or (even Developer Interface).  In this way you can observe and interact with the flow of data through your atmoic PowerShell scripts that read the output of individual tasks and then issue new commands asynchronously.</div>
+    <br><br>
+    The other important aspect is you enter a command or script invocation in PowerShell, then you wait for a result and react to it.  That is procedural because you have to wait for the handel to enter your next command and often time the next command will be based on the last output you read.
+    <br><br>
+    Node-Powershell is great at doing that sequence over and over again and super fast.  It is terrible at the thing more people ask for which is to be allowed to just wrap node-powershell in a promise and that means they are allowed to multi-thread 100x PowerShell things in parallel.  In my experience if your button can spawn 5 powershells and the user can click 10 times it just puts too much pressure on your RAM as it gives you 50 PowerShells.  This is not how PowerShell is used normally (obviously) and if you see my next demo I have a way more elaborate explanation of how I handle the PowerShell experience in a procedural queue so that the user interface can create promises that PowerShell can actually live up to.
+        </p>
+    <p>I use electron and materialize and redux.</p>
+</div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   </body>
 </html>
