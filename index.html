@@ -13,6 +13,9 @@
         font-family: 'Roboto Mono', monospace;
         font-size: 1em;
         }
+        h2{
+        font-size: .9em;
+        }
         #iconrow{
          height:10vh;
          position:fixed;
@@ -40,22 +43,26 @@
         </div>
     <div class="container">
          <div class="row center">
-             <h1>electron with node-powershell</h1>
+             <h1>electron with node-powershell materialize and redux. </h1>
          </div>
         <div class="row"></div>
          <div class="row">
            <h2>let's talk about automating a basic task / giving a script a GUI</h2>
-           <p>This is a starter project to not only give a sample of what can be done quickly and easily but also I wanted to share some of the pitfalls of building a user friendly interface for simple scripts that follow fairly procedural steps: A, B, C that you want to repeat or have your end users repeat.  Imagine that with a single click a PowerShell script is fired that queries Active Directory, performs some computation, and POSTs the result to a web API.  Sound easy.  But what if your user clicks the button 16 times really, really fast?</p>
+           <p><a href="https://github.com/BenjaminMichael/node-powershell-electron-basic-demo">This is a starter project</a> to share a sample of what can be done quickly and easily but also warn you about the common pitfalls of building a user friendly interface.</p>
+           insert slick image here
+           <p> Imagine that with a single click a PowerShell script is fired that queries Active Directory, performs some computation, and POSTs the result to a web API.  Sound easy.  But what if your user clicks the button 16 times really, really fast?</p>
+           insert funny memory pressure inage here
         </div>
         <div class="row"></div>
         <div class="row"><img src="docs\basic1.PNG" class="responsive-img"></div>
         <div class="row">When I first created this demo I was trying to explore that idea: perform a simple function once for each item in a set of data.  If I looked up 20 users I needed to run my function 20 times.  First I would look up, for example, 10 user names.  Then I would map a set of 10 names against my node-powershell function and this would spawn 10 powershell processes.  All on the first click!  Twenty after a second click... and so on.  
-        <br>
+        <br><br>
+        insert slow image here
         This was either too slow because I has to create/destroy PowerShell instances or it ate too many resources because the PowerShell instances wouldn't even get detroyed until my long chain of promises was reolved.
         <br>
         In my opinion this pattern is hard to avoid when you pair node-powershell with a GUI.</div>
         <br>
-        
+        insert guy using terminal image here
         <div class="row">In my experience its helpful to think of writing node-powershell the way we write powershell.  If you want to see the output of every commend, you invoke them one at a time.  If you do not care you invoke a long script or a suepr logn one-line of code.
     <br><br>
     <p>
@@ -65,7 +72,6 @@
     <br><br>
     Node-Powershell is great at doing that sequence over and over again and super fast.  It is terrible at the thing more people ask for which is to be allowed to just wrap node-powershell in a promise and that means they are allowed to multi-thread 100x PowerShell things in parallel.  In my experience if your button can spawn 5 powershells and the user can click 10 times it just puts too much pressure on your RAM as it gives you 50 PowerShells.  This is not how PowerShell is used normally (obviously) and if you see my next demo I have a way more elaborate explanation of how I handle the PowerShell experience in a procedural queue so that the user interface can create promises that PowerShell can actually live up to.
         </p>
-    <p>I use electron and materialize and redux.</p>
 </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   </body>
